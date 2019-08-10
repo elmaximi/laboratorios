@@ -29,6 +29,12 @@
       "precioPlatillo": "20",
       "categoria": "postre",
       "id": 5
+    },
+    {
+      "nombrePlatillo": "Carne frita",
+      "precioPlatillo": "10",
+      "categoria": "cortes",
+      "id": 6
     }
   ]
 }
