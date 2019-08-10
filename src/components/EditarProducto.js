@@ -20,14 +20,24 @@ function EditarProducto(props){
     const editarProducto = async e => {
         e.preventDefault();
 
+        //validacion de datos
+        const nuevoNombrePlatillo = nombrePlatilloRef.current.value,
+              nuevoPrecioPlatillo = precioPlatilloRef.current.value;
+        
+        if(nuevoNombrePlatillo === ''|| nuevoPrecioPlatillo ===''|| categoria === ''){
+            guardarError(true);
+            return;
+        }
+        guardarError(false);
+
         //revisar si cambio la categoria de lo contrario asignar el mismo valor
         let categoriaPlatillo = (categoria ==='') ? producto.categoria : categoria;
         console.log(categoriaPlatillo);
 
         //obtener los valores del formulario
         const editarPlatillo ={
-            precioPlatillo : precioPlatilloRef.current.value,
-            nombrePlatillo : nombrePlatilloRef.current.value,
+            precioPlatillo : nuevoPrecioPlatillo,
+            nombrePlatillo : nuevoNombrePlatillo,
             categoria : categoriaPlatillo
          
         }
