@@ -12,14 +12,13 @@ function ProductoLista({producto}){
 
 
     return(
-        <li data-categoria={producto.categoria} className="list-group-item d-flex justify-content-between 
-        alig-items-center">
+        <li data-categoria={producto.categoria} className="list-group-item d-flex justify-content-between alig-items-center">
             <p>
                 {producto.nombrePlatillo} {'  '}
                 <span className="font-weight-blod">${producto.precioPlatillo}</span>
             </p>
             <div>
-                <Link to={'/productos/editar/${producto.id}'}
+                <Link to={`/productos/editar/${producto.id}`}
                       className="btn btn-success mr-2"
                 >Editar</Link>
 
