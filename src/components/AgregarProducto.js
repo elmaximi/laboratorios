@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Error from './Error';
 
+import axios from 'axios';
+
 function AgregarProducto(){
     
     //state
@@ -12,7 +14,7 @@ function AgregarProducto(){
         guardarCategoria(e.target.value);
     }
 
-    const AgregarProducto = e => {
+    const AgregarProducto = async e => {
         e.preventDefault();
 
         if(nombrePlatillo === '' || precioPlatillo === '' || categoria === ''){
@@ -23,6 +25,17 @@ function AgregarProducto(){
         guardarError(false);
 
         //se crea el nuevo producto
+        try {
+            const resultado = await axios.post('http://localhost:4000/restaurant', {
+                nombrePlatillo,
+                precioPlatillo,
+                categoria
+            });
+
+            console.log(resultado);
+        } catch (error) {
+            console.log(error);
+        } 
     }
     return (
         <div className="col-md-8 mx-auto ">
