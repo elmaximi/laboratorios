@@ -6,8 +6,10 @@ import Swal from 'sweetalert2';
 import { withRouter } from 'react-router-dom';
 
 
-function EditarProducto({producto}){
+function EditarProducto(props){
 
+    //destructuring de propos
+    const {history, producto, guardarRecargarProductos} = props;
     //generar los refs
     const precioPlatilloRef = useRef('');
     const nombrePlatilloRef = useRef('');
@@ -50,6 +52,12 @@ function EditarProducto({producto}){
                 text: 'Hubo un error, vuelve a intentarlo'
             })
         }
+        //redirigir al usuario, consultar a la API
+        guardarRecargarProductos(true);
+        history.push('/productos');
+
+
+
     }
     const leerValorRadio = e => {
         guardarCategoria(e.target.value);
