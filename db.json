@@ -17,6 +17,18 @@
       "precioPlatillo": "100",
       "categoria": "ensalada",
       "id": 3
+    },
+    {
+      "nombrePlatillo": "Zumito de naranja",
+      "precioPlatillo": "25",
+      "categoria": "bebida",
+      "id": 4
+    },
+    {
+      "nombrePlatillo": "Mousse de maracuya",
+      "precioPlatillo": "20",
+      "categoria": "postre",
+      "id": 5
     }
   ]
 }
