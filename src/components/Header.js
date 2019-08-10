@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 const Header =() =>(
     <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div className="container">
             <Link to ="/productos" className="navbar-brand">
                 React CRUD y Routing
                 </Link>
