@@ -17,7 +17,7 @@ function App() {
       // consultar la api del json-server
       const resultado = await axios.get('http://localhost:4000/restaurant');
 
-      console.log(resultado.data);
+      guardarProductos(resultado.data);
     }
     consultarApi();
   }, []);
@@ -27,8 +27,14 @@ function App() {
       <Header/>
       <main className="container mt-5">
         <Switch>
+          <Route exact path="/productos" 
+                render={ () => (
+                  <Productos
+                    productos={productos}
+                  />
+                )}
+          />
           <Route exact path="/nuevo-producto" component={AgregarProducto}/>
-          <Route exact path="/productos" component={Productos}/>
           <Route exact path="/productos/:id" component={Producto}/>
           <Route exact path="/productos/editar/:id" component={EditarProducto}/>
         </Switch>
