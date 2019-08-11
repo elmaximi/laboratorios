@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import axios from 'axios';
 import Swal from 'sweetalert2';
+import firebase from './config/firebase';
 
-function ProductoLista({producto, guardarRecargarProductos}){
+function LaboratorioLista({laboratorio}){
 
 
-    const eliminarProducto = id =>{
+    const eliminarLaboratorio = id =>{
         console.log('eliminando', id);
         //TODO: Eliminar los registros
         Swal.fire({
             title: 'Estás seguro?',
-            text: "Un platillo eliminado no se podrá recuperar",
+            text: "Un laboratorio eliminado no se podrá recuperar",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -22,17 +22,14 @@ function ProductoLista({producto, guardarRecargarProductos}){
           }).then(async (result) => {
             if (result.value) {
                 try {
-                    const url = `http://localhost:4000/restaurant/${id}`;
-                    const resultado = await axios.delete(url);
-                    if(resultado.status === 200){
+                    firebase.firestore().collection('salas').doc(id).delete()
+                    .then(
                         Swal.fire(
                             'Eliminado!',
-                            'El Producto se ha eliminado',
+                            'El Laboratorio se ha eliminado',
                             'success'
                         )
-                        // Consultar la api nuevamente
-                        guardarRecargarProductos(true)
-                    }
+                    )
                 } catch (error) {
                     console.log(error);
                     Swal.fire({
@@ -48,20 +45,20 @@ function ProductoLista({producto, guardarRecargarProductos}){
 
 
     return(
-        <li data-categoria={producto.categoria} className="list-group-item d-flex justify-content-between alig-items-center">
+        <li className="list-group-item d-flex justify-content-between alig-items-center">
             <p>
-                {producto.nombrePlatillo} {'  '}
-                <span className="font-weight-blod">${producto.precioPlatillo}</span>
+                {laboratorio.nombreLaboratorio} {' |'} 
+                <span className="font-weight-blod">{laboratorio.descripcionLaboratorio}</span>
             </p>
             <div>
-                <Link to={`/productos/editar/${producto.id}`}
+                <Link to={`/laboratorios/editar/${laboratorio.id}`}
                       className="btn btn-success mr-2"
                 >Editar</Link>
 
                 <button
                 type="button"
                 className="btn btn-danger"
-                onClick={() => eliminarProducto(producto.id)}
+                onClick={() => eliminarLaboratorio(laboratorio.id)}
                 >
                     Eliminar &times;
                 </button>
@@ -70,4 +67,4 @@ function ProductoLista({producto, guardarRecargarProductos}){
     )
 }
 
-export default ProductoLista;
+export default LaboratorioLista;

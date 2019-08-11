@@ -1,16 +1,39 @@
 {
-  "restaurant": [
+  "salas": [
     {
-      "nombrePlatillo": "Zumito de naranja",
-      "precioPlatillo": "25",
+      "nombreLaboratorio": "Laboratorio 1",
+      "descripcionLaboratorio": "5 salas, alberga máximo 50 personas.",
       "categoria": "bebida",
-      "id": 4
+      "id": 1
     },
     {
-      "nombrePlatillo": "Mousse de maracuya",
-      "precioPlatillo": "20",
+      "nombreLaboratorio": "Laboratorio 2",
+      "descripcionLaboratorio": "1 sala, alberga máximo 20 personas.",
       "categoria": "postre",
-      "id": 5
+      "id": 2
+    },
+    {
+      "nombreLaboratorio": "Laboratorio 3",
+      "descripcionLaboratorio": "1 sala, alberga máximo 11 personas.",
+      "categoria": "bebida",
+      "id": 3
+    },
+    {
+      "nombreLaboratorio": "Laboratorio 5",
+      "descripcionLaboratorio": "1 sala, alberga máximo 5 personas.",
+      "categoria": "cortes",
+      "id": 4
+    }
+  ],
+  "horario": [
+    {
+      "nombreDocente": "Marc Grob",
+      "materia": "Graficación y animación",
+      "horainicio": "16:00",
+      "horafin": "18:00",
+      "lab": "Laboratorio 1",
+      "dia": "Lunes",
+      "id": 1
     }
   ]
 }
