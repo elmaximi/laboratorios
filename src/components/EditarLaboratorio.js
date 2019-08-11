@@ -16,7 +16,6 @@ function EditarLaboratorio(props){
     const pattLaboratorioRef = useRef('');
     
     const [error, guardarError ] = useState(false);
-    //const [patt, guardarPatt ] = useState('');
     
     const editarLaboratorio = async e => {
         e.preventDefault();
@@ -40,8 +39,6 @@ function EditarLaboratorio(props){
             patt : nuevoPattLaboratorio
          
         }
-        //enviar el request
-        const url = `http://localhost:4000/salas/${laboratorio.id}`;
 
         try {
             firebase.firestore().collection('salas').doc(laboratorio.id).update(editarLaboratorio)
@@ -107,7 +104,7 @@ function EditarLaboratorio(props){
                     name="patt"
                     placeholder="Patt Laboratorio"
                     ref={pattLaboratorioRef}
-                    defaultValue={laboratorio.pattLaboratorio}
+                    defaultValue={laboratorio.patt}
                 ></textarea>
             </div>
 

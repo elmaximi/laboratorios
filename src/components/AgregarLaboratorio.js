@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Error from './Error';
 
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { withRouter } from 'react-router-dom';
 import firebase from './config/firebase';
