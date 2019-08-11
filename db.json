@@ -1,24 +1,6 @@
 {
   "restaurant": [
     {
-      "precioPlatillo": "200",
-      "nombrePlatillo": "Cheesecacke",
-      "categoria": "postre",
-      "id": 1
-    },
-    {
-      "precioPlatillo": "300",
-      "nombrePlatillo": "Rib Eye  400g",
-      "categoria": "cortes",
-      "id": 2
-    },
-    {
-      "precioPlatillo": "10",
-      "nombrePlatillo": "Rusa",
-      "categoria": "ensalada",
-      "id": 3
-    },
-    {
       "nombrePlatillo": "Zumito de naranja",
       "precioPlatillo": "25",
       "categoria": "bebida",
@@ -29,12 +11,6 @@
       "precioPlatillo": "20",
       "categoria": "postre",
       "id": 5
-    },
-    {
-      "nombrePlatillo": "Carne frita",
-      "precioPlatillo": "10",
-      "categoria": "cortes",
-      "id": 6
     }
   ]
 }
