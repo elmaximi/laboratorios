@@ -88,7 +88,23 @@ function App() {
                 auth={autenticacion}
               />
             )} />
+          <Route exact path="/horarios"
+            render={() => (
+              <Horarios
+                horarios={horarios}
+                auth={autenticacion}
+              />
+            )}
+          />
+          <Route exact path="/nuevo-horario"
+            render={() => (
+              <AgregarHorario
+                datos={laboratorios}
+                auth={autenticacion}
+              />
+            )} />
           <Route exact path="/laboratorios/:id" component={Laboratorio} />
+          <Route exact path="/horarios/:id" component={Horario} />
           <Route exact path="/laboratorios/editar/:id"
             render={props => {
               // tomar el id del laboratorio
@@ -105,23 +121,6 @@ function App() {
               )
             }}
           />
-          {/*aqui empieza las rutas de los horarios*/}
-          <Route exact path="/horarios"
-            render={() => (
-              <Horarios
-                horarios={horarios}
-                auth={autenticacion}
-              />
-            )}
-          />
-          <Route exact path="/nuevo-horario"
-            render={() => (
-              <AgregarHorario
-                datos={laboratorios}
-                auth={autenticacion}
-              />
-            )} />
-          <Route exact path="/horarios/:id" component={Horario} />
           <Route exact path="/horarios/editar/:id"
             render={props => {
               // tomar el id del horario
@@ -138,7 +137,6 @@ function App() {
               )
             }}
           />
-          {/*aqui empieza la ruta del marcador*/}
           <Route exact path="/nuevo-marcador"
             render={() => (
               <Marcador

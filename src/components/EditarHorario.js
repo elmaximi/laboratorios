@@ -135,7 +135,8 @@ function EditarHorario(props) {
                     <select
                         className="form-control"
                         name="laboratorio"
-                        ref={labRef} defaultValue={horario.laboratorio}>
+                        ref={labRef} 
+                        defaultValue={horario.laboratorio}>
                         <option>Seleccione un laboratorio</option>
                         {datos.map(dato => (
                             <OpcionesLab key={dato.id} dato={dato} />

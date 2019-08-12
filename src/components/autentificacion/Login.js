@@ -27,7 +27,7 @@ import {withRouter} from 'react-router-dom';
                 Swal.fire({
                     type: 'error',
                     title: 'Contraseña incorrecta',
-                    text: 'La contraseña ingresaste es incorrecta!',
+                    text: 'La contraseña que ingresaste es incorrecta!',
                 })
             }else if(error.message==='There is no user record corresponding to this identifier. The user may have been deleted.'){
                 Swal.fire({
