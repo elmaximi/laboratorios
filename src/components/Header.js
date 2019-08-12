@@ -65,13 +65,6 @@ function Header({ history }) {
                             </li>
 
                             <li className="nav-item">
-                                <NavLink
-                                    to='/nuevo-horario'
-                                    className="nav-link"
-                                    activeClassName="active"
-                                >Nuevo Horario</NavLink>
-                            </li>
-                            <li className="nav-item">
                                 <NavLink  
                                     to="/nuevo-marcador" 
                                     className="nav-link" 

@@ -8,7 +8,7 @@ import firebase from './config/firebase';
 
 function EditarHorario(props) {
 
-    //destructuring de propos
+    //destructuring de props
     const { history, horario, datos } = props;
 
     //generar los refs
@@ -69,6 +69,7 @@ function EditarHorario(props) {
         //redirigir al usuario, consultar a la API
         history.push('/horarios');
     }
+    console.log('Datos: '+datos);
 
     return (
         <div className="col-md-8 mx-auto ">

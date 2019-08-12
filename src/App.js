@@ -9,12 +9,10 @@ import Marcador from './components/Marcador';
 import Laboratorios from './components/Laboratorios';
 import AgregarLaboratorio from './components/AgregarLaboratorio';
 import EditarLaboratorio from './components/EditarLaboratorio';
-import Laboratorio from './components/Laboratorio';
 
 import Horarios from './components/Horarios';
 import AgregarHorario from './components/AgregarHorario';
 import EditarHorario from './components/EditarHorario';
-import Horario from './components/Horario';
 
 
 
@@ -103,8 +101,6 @@ function App() {
                 auth={autenticacion}
               />
             )} />
-          <Route exact path="/laboratorios/:id" component={Laboratorio} />
-          <Route exact path="/horarios/:id" component={Horario} />
           <Route exact path="/laboratorios/editar/:id"
             render={props => {
               // tomar el id del laboratorio
@@ -132,6 +128,7 @@ function App() {
               return (
                 <EditarHorario
                   horario={horario[0]}
+                  datos={laboratorios}
                 //guardarRecargarLaboratorios={guardarRecargarLaboratorios}
                 />
               )
