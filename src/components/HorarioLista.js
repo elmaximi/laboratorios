@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import firebase from './config/firebase';
 
-function HorarioLista({horario}){
+function HorarioLista({ horario }) {
 
 
-    const eliminarHorario = id =>{
+    const eliminarHorario = id => {
         console.log('eliminando', id);
         //TODO: Eliminar los registros
         Swal.fire({
@@ -18,18 +18,18 @@ function HorarioLista({horario}){
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, eliminar',
-            cancelButtonText :'Cancelar'
-          }).then(async (result) => {
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
             if (result.value) {
                 try {
                     firebase.firestore().collection('horario').doc(id).delete()
-                    .then(
-                        Swal.fire(
-                            'Eliminado!',
-                            'El horario se ha eliminado',
-                            'success'
+                        .then(
+                            Swal.fire(
+                                'Eliminado!',
+                                'El horario se ha eliminado',
+                                'success'
+                            )
                         )
-                    )
                 } catch (error) {
                     console.log(error);
                     Swal.fire({
@@ -39,25 +39,25 @@ function HorarioLista({horario}){
                     })
                 }
             }
-          })
+        })
     }
 
 
 
-    return(
+    return (
         <li className="list-group-item d-flex justify-content-between alig-items-center">
             <p>
                 Docente: {horario.nombreDocente}<br></br>
                 Materia: {horario.materia}<br></br>
                 Dia: {horario.dia}<br></br>
-                {horario.horainicio} {'-'} {horario.horafin} 
-                
+                {horario.horainicio} {'-'} {horario.horafin}
+
             </p>
             <div>
                 <Link to={`/horarios/editar/${horario.id}`} className="btn btn-success mr-2">Editar</Link>
 
-                <button type="button" className="btn btn-danger" 
-                onClick={() => eliminarHorario(horario.id)}>Eliminar &times;
+                <button type="button" className="btn btn-danger"
+                    onClick={() => eliminarHorario(horario.id)}>Eliminar &times;
                 </button>
             </div>
         </li>

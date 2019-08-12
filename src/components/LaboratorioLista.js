@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import firebase from './config/firebase';
 
-function LaboratorioLista({laboratorio}){
+function LaboratorioLista({ laboratorio }) {
 
 
-    const eliminarLaboratorio = id =>{
+    const eliminarLaboratorio = id => {
         console.log('eliminando', id);
         //TODO: Eliminar los registros
         Swal.fire({
@@ -18,18 +18,18 @@ function LaboratorioLista({laboratorio}){
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, eliminar',
-            cancelButtonText :'Cancelar'
-          }).then(async (result) => {
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
             if (result.value) {
                 try {
                     firebase.firestore().collection('salas').doc(id).delete()
-                    .then(
-                        Swal.fire(
-                            'Eliminado!',
-                            'El Laboratorio se ha eliminado',
-                            'success'
+                        .then(
+                            Swal.fire(
+                                'Eliminado!',
+                                'El Laboratorio se ha eliminado',
+                                'success'
+                            )
                         )
-                    )
                 } catch (error) {
                     console.log(error);
                     Swal.fire({
@@ -39,26 +39,26 @@ function LaboratorioLista({laboratorio}){
                     })
                 }
             }
-          })
+        })
     }
 
 
 
-    return(
+    return (
         <li className="list-group-item d-flex justify-content-between alig-items-center">
             <p>
-                {laboratorio.nombreLaboratorio} {' |'} 
+                {laboratorio.nombreLaboratorio} {' |'}
                 <span className="font-weight-blod">{laboratorio.descripcionLaboratorio}</span>
             </p>
             <div>
                 <Link to={`/laboratorios/editar/${laboratorio.id}`}
-                      className="btn btn-success mr-2"
+                    className="btn btn-success mr-2"
                 >Editar</Link>
 
                 <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => eliminarLaboratorio(laboratorio.id)}
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => eliminarLaboratorio(laboratorio.id)}
                 >
                     Eliminar &times;
                 </button>
