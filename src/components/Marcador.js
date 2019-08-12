@@ -25,7 +25,7 @@ const Marcador = ({auth}) => {
                         onLoad={alerta}
                     ></iframe>
                 </div>
-                <p className="alert alert-info text-center">Powered by @jerome_etienne</p>
+                <p className="alert alert-info text-center">Generador de marcadores</p>
             </div>
             ): <h1 className="alert alert-danger p3 my-5 text-center text-uppercase font-weight-bold">Pagina no disponible.</h1>}
         </div>
