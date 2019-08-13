@@ -34,6 +34,9 @@ function Header({ history }) {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 mb-5">
             {autenticacion ? (
                 <div className="container-fluid">
+                    <NavLink class="navbar-brand" to="#">
+                    <img src="../favicon.ico" width="30" height="30" alt=""/>
+                    </NavLink>
                     <Link to="/home" className="navbar-brand">Sistema de Laboratorios | </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -43,19 +46,19 @@ function Header({ history }) {
                             <li className="nav-item dropdown show">
                                 <NavLink
                                     className="nav-link dropdown-toggle"
-                                    data-toggle="dropdown"
                                     to="#"
-                                    role="button"
+                                    id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown"
                                     aria-haspopup="true"
-                                    aria-expanded="true"
+                                    aria-expanded="false"
                                 >Registros</NavLink>
-                                <div className="dropdown-menu show" x-placement="bottom-start" >
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <NavLink
                                         to='/laboratorios'
                                         className="nav-link"
                                         activeClassName="active"
                                     >Laboratorios</NavLink>
-
+                                    <div className="dropdown-divider"></div>
                                     <NavLink
                                         to='/horarios'
                                         className="nav-link"
