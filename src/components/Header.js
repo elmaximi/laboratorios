@@ -40,33 +40,38 @@ function Header({ history }) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
+                            <li className="nav-item dropdown show">
+                                <NavLink
+                                    className="nav-link dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    to="#"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="true"
+                                >Registros</NavLink>
+                                <div className="dropdown-menu show" x-placement="bottom-start" >
+                                    <NavLink
+                                        to='/laboratorios'
+                                        className="nav-link"
+                                        activeClassName="active"
+                                    >Laboratorios</NavLink>
+
+                                    <NavLink
+                                        to='/horarios'
+                                        className="nav-link"
+                                        activeClassName="active"
+                                    >Horarios</NavLink>
+                                </div>
+                            </li>
                             <li className="nav-item">
                                 <NavLink
-                                    to='/laboratorios'
+                                    to="/nuevo-marcador"
                                     className="nav-link"
-                                    activeClassName="active"
-                                >Laboratorios</NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink
-                                    to='/horarios'
-                                    className="nav-link"
-                                    activeClassName="active"
-                                >Horarios</NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink  
-                                    to="/nuevo-marcador" 
-                                    className="nav-link" 
                                     activeClassName="active"
                                 >Generar Marcador</NavLink>
                             </li>
-
-
                         </ul>
-                        <button className="btn btn-sm btn-outline-primary my-2 my-sm-0" onClick={logOut} >Cerrar Sesión</button>
+                        <button className="btn btn-outline-success btn-sm" onClick={logOut} >Cerrar Sesión</button>
                     </div>
                 </div>
             ) : <Link to="/" className="navbar-brand" >Sistema de laboratorios</Link>}

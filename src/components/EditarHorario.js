@@ -69,7 +69,6 @@ function EditarHorario(props) {
         //redirigir al usuario, consultar a la API
         history.push('/horarios');
     }
-    console.log('Datos: '+datos);
 
     return (
         <div className="col-md-8 mx-auto ">

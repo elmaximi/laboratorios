@@ -41,15 +41,15 @@ import {withRouter} from 'react-router-dom';
     }
 
     return (
-        <div>
-            <div className="container">
+        <div className="container">
+            <div className="jumbotron">
                 <div id="login-row" className="row justify-content-center align-items-center">
                  <div id="login-column" className="col-md-6">
                     <div id="login-box" className="col-md-12">
                         <form onSubmit={logeo}>
                             <h3 className="text-center text-info">Iniciar Sesión</h3>
                             <div className="form-group">
-                                <label for="username" className="text-info">Correo:</label><br/>
+                                <label for="username" className="text-info">Correo</label><br/>
                                 <input type="text" name="username" id="username" className="form-control"
                                 required
                                 value={correo}
@@ -57,7 +57,7 @@ import {withRouter} from 'react-router-dom';
                                 />
                             </div>
                             <div className="form-group">
-                                <label for="password" className="text-info">Contraseña:</label><br/>
+                                <label for="password" className="text-info">Contraseña</label><br/>
                                 <input type="password" name="password" id="password" className="form-control"
                                 required
                                 value={contrasena}
