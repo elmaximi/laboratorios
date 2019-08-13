@@ -57,13 +57,36 @@ function Header({ history }) {
                                         to='/laboratorios'
                                         className="nav-link"
                                         activeClassName="active"
-                                    >Laboratorios</NavLink>
+                                    >Listado de Laboratorios</NavLink>
                                     <div className="dropdown-divider"></div>
                                     <NavLink
                                         to='/horarios'
                                         className="nav-link"
                                         activeClassName="active"
-                                    >Horarios</NavLink>
+                                    >Listado de Horarios</NavLink>
+                                </div>
+                            </li>
+                            <li className="nav-item dropdown show">
+                            <NavLink
+                                    className="nav-link dropdown-toggle"
+                                    to="#"
+                                    id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >Reservas</NavLink>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <NavLink
+                                        to='/nuevo-laboratorio'
+                                        className="nav-link"
+                                        activeClassName="active"
+                                    >Reserva de Laboratorios</NavLink>
+                                    <div className="dropdown-divider"></div>
+                                    <NavLink
+                                        to='/nuevo-horario'
+                                        className="nav-link"
+                                        activeClassName="active"
+                                    >Reserva de Horarios</NavLink>
                                 </div>
                             </li>
                             <li className="nav-item">
