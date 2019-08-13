@@ -34,12 +34,12 @@ function Header({ history }) {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 mb-5">
             {autenticacion ? (
                 <div className="container-fluid">
-                    <Link to="/laboratorios" className="navbar-brand">Sistema de Laboratorios | </Link>
+                    <Link to="/home" className="navbar-brand">Sistema de Laboratorios | </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
+                        <ul className="nav navbar-nav mr-auto">
                             <li className="nav-item dropdown show">
                                 <NavLink
                                     className="nav-link dropdown-toggle"

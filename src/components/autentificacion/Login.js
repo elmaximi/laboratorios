@@ -20,7 +20,7 @@ import {withRouter} from 'react-router-dom';
                 timer: 1500
             })
             recargar(true);
-            history.replace('/laboratorios');
+            history.replace('/home');
         } catch (error) {
             console.log(error.message);
             if(error.message==='The password is invalid or the user does not have a password.'){

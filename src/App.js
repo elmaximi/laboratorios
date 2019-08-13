@@ -13,12 +13,13 @@ import EditarLaboratorio from './components/EditarLaboratorio';
 import Horarios from './components/Horarios';
 import AgregarHorario from './components/AgregarHorario';
 import EditarHorario from './components/EditarHorario';
+import Home from './components/Home';
 
 
 
 
 function App() {
-
+  
   const [laboratorios, guardarLaboratorios] = useState([]);
   const [horarios, guardarHorarios] = useState([]);
 
@@ -70,6 +71,7 @@ function App() {
             )}
           />
           {/*aqui empieza las rutas de los laboratorisos*/}
+          <Route exact path ="/home" component={Home}/>
           <Route exact path="/laboratorios"
             render={() => (
               <Laboratorios
