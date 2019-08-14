@@ -14,6 +14,7 @@ import Horarios from './components/Horarios';
 import AgregarHorario from './components/AgregarHorario';
 import EditarHorario from './components/EditarHorario';
 import Home from './components/Home';
+import AR from './components/AR';
 
 
 
@@ -63,6 +64,7 @@ function App() {
       <Header />
       <main className="container mt-5">
         <Switch>
+          {/*aqui empieza las rutas*/}
           <Route exact path="/"
             render={() => (
               <Login
@@ -70,8 +72,17 @@ function App() {
               />
             )}
           />
-          {/*aqui empieza las rutas de los laboratorisos*/}
-          <Route exact path ="/home" component={Home}/>
+          <Route exact path="/nuevo-marcador"
+            render={() => (
+              <Marcador
+                auth={autenticacion}
+              />
+            )}
+          />
+          <Route exact path="/arjs"
+                component={AR}
+              />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/laboratorios"
             render={() => (
               <Laboratorios
@@ -114,7 +125,6 @@ function App() {
               return (
                 <EditarLaboratorio
                   laboratorio={laboratorio[0]}
-                //guardarRecargarLaboratorios={guardarRecargarLaboratorios}
                 />
               )
             }}
@@ -131,17 +141,9 @@ function App() {
                 <EditarHorario
                   horario={horario[0]}
                   datos={laboratorios}
-                //guardarRecargarLaboratorios={guardarRecargarLaboratorios}
                 />
               )
             }}
-          />
-          <Route exact path="/nuevo-marcador"
-            render={() => (
-              <Marcador
-                auth={autenticacion}
-              />
-            )}
           />
         </Switch>
       </main>
