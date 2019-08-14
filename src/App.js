@@ -5,6 +5,8 @@ import firebase from './components/config/firebase';
 import Login from './components/autentificacion/Login';
 import Header from './components/Header';
 import Marcador from './components/Marcador';
+import Home from './components/Home';
+import AR from './components/AR';
 
 import Laboratorios from './components/Laboratorios';
 import AgregarLaboratorio from './components/AgregarLaboratorio';
@@ -13,9 +15,6 @@ import EditarLaboratorio from './components/EditarLaboratorio';
 import Horarios from './components/Horarios';
 import AgregarHorario from './components/AgregarHorario';
 import EditarHorario from './components/EditarHorario';
-import Home from './components/Home';
-import AR from './components/AR';
-
 
 
 
