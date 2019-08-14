@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Marcador from './components/Marcador';
 import Home from './components/Home';
 import AR from './components/AR';
+import Labpatt from './components/Labpatt';
 
 import Laboratorios from './components/Laboratorios';
 import AgregarLaboratorio from './components/AgregarLaboratorio';
@@ -81,6 +82,9 @@ function App() {
           <Route exact path="/arjs"
                 component={AR}
               />
+          <Route exact path="/arpatt"
+                component={Labpatt}
+          />  
           <Route exact path="/home" component={Home} />
           <Route exact path="/laboratorios"
             render={() => (

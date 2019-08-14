@@ -32,11 +32,11 @@ function Header({ history }) {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 mb-5">
+            <NavLink class="navbar-brand" to="#">
+                <img src="../favicon.ico" width="30" height="30" alt="" />
+            </NavLink>
             {autenticacion ? (
                 <div className="container-fluid">
-                    <NavLink class="navbar-brand" to="#">
-                    <img src="../favicon.ico" width="30" height="30" alt=""/>
-                    </NavLink>
                     <Link to="/home" className="navbar-brand">Sistema de Laboratorios | </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@ function Header({ history }) {
                                 </div>
                             </li>
                             <li className="nav-item dropdown show">
-                            <NavLink
+                                <NavLink
                                     className="nav-link dropdown-toggle"
                                     to="#"
                                     id="navbarDropdownMenuLink"
@@ -103,10 +103,18 @@ function Header({ history }) {
                                     activeClassName="active"
                                 >Cam AR.js</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/arpatt"
+                                    className="nav-link"
+                                    activeClassName="active"
+                                >patt AR.js</NavLink>
+                            </li>
                         </ul>
                         <button className="btn btn-outline-success btn-sm" onClick={logOut} >Cerrar Sesión</button>
                     </div>
                 </div>
+
             ) : <Link to="/" className="navbar-brand" >Sistema de laboratorios</Link>}
         </nav>
     )
