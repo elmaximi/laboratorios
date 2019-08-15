@@ -6,7 +6,6 @@ import Login from './components/autentificacion/Login';
 import Header from './components/Header';
 import Marcador from './components/Marcador';
 import Home from './components/Home';
-import AR from './components/AR';
 import Labpatt from './components/Labpatt';
 
 import Laboratorios from './components/Laboratorios';
@@ -79,9 +78,6 @@ function App() {
               />
             )}
           />
-          <Route exact path="/arjs"
-                component={AR}
-              />
           <Route exact path="/arpatt"
                 component={Labpatt}
           />  
