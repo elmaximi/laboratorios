@@ -16,6 +16,16 @@ function EditarLaboratorio(props) {
     const [archivoPatt, setArchivoPatt ] = useState('');
 
     const [error, guardarError] = useState(false);
+    const storageRef = firebase.storage().ref("marcadores");
+    
+  const descargarPatt = () => {
+    const uploadFile = storageRef.child(laboratorio.patt)
+    uploadFile.getDownloadURL().then((url) => {
+      window.open(url);
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 
     const editarLaboratorio = async e => {
         e.preventDefault();
@@ -114,6 +124,15 @@ function EditarLaboratorio(props) {
                             }
                         }}
                     ></input>
+                </div>
+
+                <div className="form-group">
+                    <button
+                        type="button"
+                        className=" primary form-control button"
+                        name="patt"
+                        onClick={descargarPatt}
+                    > Descargar Archivo .patt</button>
                 </div>
 
                 <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Editar Laboratorio" />

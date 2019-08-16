@@ -3,7 +3,7 @@ import React,{Fragment} from 'react'
 const OpcionesLab = ({dato}) => {
     return (
         <Fragment>
-            <option value={dato.nombreLaboratorio}>{dato.nombreLaboratorio}</option>
+            <option value={dato.id}>{dato.nombreLaboratorio}</option>
         </Fragment>
     )
 }

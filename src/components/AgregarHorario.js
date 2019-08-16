@@ -119,9 +119,11 @@ function AgregarHorario({history, datos}){
                             name="laboratorio"
                             onChange={e => guardarLab(e.target.value)}>
                             <option>Seleccione un laboratorio</option>
-                            {datos.map(dato => (
+                            {datos.map(dato => {
+                                console.log(dato)
+                                return(
                                 <OpcionesLab key={dato.id} dato={dato} />
-                            ))}
+                            )})}
                         </select>
                     </div>
                     <div className="form-group">
