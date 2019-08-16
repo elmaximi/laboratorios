@@ -32,7 +32,7 @@ function Header({ history }) {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 mb-5">
-            <NavLink class="navbar-brand" to="#">
+            <NavLink className="navbar-brand" to="#">
                 <img src="../favicon.ico" width="30" height="30" alt="" />
             </NavLink>
             {autenticacion ? (

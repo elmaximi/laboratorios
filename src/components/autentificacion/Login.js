@@ -65,7 +65,7 @@ import {withRouter} from 'react-router-dom';
                                 />
                             </div>
                             <div className="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar"/>
+                                <input type="submit" name="submit" className="btn btn-info btn-md" value="Entrar"/>
                             </div>
                         </form>
                     </div>

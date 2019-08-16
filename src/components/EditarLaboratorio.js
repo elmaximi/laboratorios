@@ -13,7 +13,7 @@ function EditarLaboratorio(props) {
     //generar los refs
     const descripcionLaboratorioRef = useRef('');
     const nombreLaboratorioRef = useRef('');
-    const pattLaboratorioRef = useRef('');
+    const [archivoPatt, setArchivoPatt ] = useState('');
 
     const [error, guardarError] = useState(false);
 
@@ -22,10 +22,9 @@ function EditarLaboratorio(props) {
 
         //validacion de datos
         const nuevoNombreLaboratorio = nombreLaboratorioRef.current.value,
-            nuevoDescripcionLaboratorio = descripcionLaboratorioRef.current.value,
-            nuevoPattLaboratorio = pattLaboratorioRef.current.value;
+            nuevoDescripcionLaboratorio = descripcionLaboratorioRef.current.value;
 
-        if (nuevoNombreLaboratorio === '' || nuevoDescripcionLaboratorio === '' || nuevoPattLaboratorio === '') {
+        if (nuevoNombreLaboratorio === '' || nuevoDescripcionLaboratorio === '' ||  (archivoPatt === '' || archivoPatt.length === 0)) {
             guardarError(true);
             return;
         }
@@ -36,22 +35,28 @@ function EditarLaboratorio(props) {
         const editarLaboratorio = {
             nombreLaboratorio: nuevoNombreLaboratorio,
             descripcionLaboratorio: nuevoDescripcionLaboratorio,
-            patt: nuevoPattLaboratorio
+            patt: archivoPatt.name
 
         }
 
         try {
             firebase.firestore().collection('salas').doc(laboratorio.id).update(editarLaboratorio)
-                .then(Swal.fire({
-                    position: 'center',
-                    type: 'success',
-                    title: 'Excelente!',
-                    text: 'Laboratorio editado con exito!',
-                    showConfirmButton: false,
-                    timer: 1500
-                }))
+                .then(()=>{
+                    
+                    const storageRef = firebase.storage().ref("marcadores");
+                    const uploadFile = storageRef.child(archivoPatt.name)
+                        uploadFile.put(archivoPatt).then(() => {
+                            Swal.fire({
+                                position: 'center',
+                                type: 'success',
+                                title: 'Excelente!',
+                                text: 'Laboratorio editado con exito!',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        })
+  })
         } catch (error) {
-            console.log(error);
             Swal.fire({
                 type: 'error',
                 title: 'Error',
@@ -62,7 +67,7 @@ function EditarLaboratorio(props) {
         //guardarRecargarLaboratorios(true);
         history.push('/laboratorios');
     }
-    console.log(laboratorio);
+
     return (
         <div className="col-md-8 mx-auto ">
             <h1 className="text-center">Editar Laboratorio</h1>
@@ -98,14 +103,17 @@ function EditarLaboratorio(props) {
                 </div>
                 <div className="form-group">
                     <label>Patt Laboratorio</label>
-                    <textarea
-                        type="text"
+                    <input
+                        type="file"
+                        accept=".patt"
                         className="form-control"
                         name="patt"
-                        placeholder="Patt Laboratorio"
-                        ref={pattLaboratorioRef}
-                        defaultValue={laboratorio.patt}
-                    ></textarea>
+                        onChange={e => {
+                            if (e.target.files.length > 0){
+                            setArchivoPatt(e.target.files[0])
+                            }
+                        }}
+                    ></input>
                 </div>
 
                 <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Editar Laboratorio" />

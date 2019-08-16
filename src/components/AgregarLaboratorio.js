@@ -4,19 +4,19 @@ import Error from './Error';
 import Swal from 'sweetalert2';
 import { withRouter } from 'react-router-dom';
 import firebase from './config/firebase';
+import 'firebase/firestore';
 
 function AgregarLaboratorio({history, guardarRecargarLaboratorios}){
     
     //state
     const [nombreLaboratorio, guardarNombre ] = useState('');
     const [descripcionLaboratorio, guardarDescripcion ] = useState('');
-    const [patt, guardarPatt ] = useState('');
+    const [archivoPatt, setArchivoPatt ] = useState('');
     const [error, guardarError ] = useState(false);
    
     const AgregarLaboratorio = async e => {
         e.preventDefault();
-
-        if(nombreLaboratorio === '' || descripcionLaboratorio === '' || patt === ''){
+        if(nombreLaboratorio === '' || descripcionLaboratorio === '' || (archivoPatt === '' || archivoPatt.length === 0)){
             guardarError(true);
             return;
         }
@@ -28,17 +28,25 @@ function AgregarLaboratorio({history, guardarRecargarLaboratorios}){
             firebase.firestore().collection('salas').add({
                 nombreLaboratorio,
                 descripcionLaboratorio,
-                patt
+                patt: archivoPatt.name,
             })      
-            .then(
+            .then(() => {
+
+        const storageRef = firebase.storage().ref("marcadores");
+        const uploadFile = storageRef.child(archivoPatt.name)
+
+            uploadFile.put(archivoPatt).then(() => {
+
                 Swal.fire({
-                position: 'center',
-                type: 'success',
-                title: 'Excelente!',
-                text: 'Laboratorio creado con exito',
-                showConfirmButton: false,
-                timer: 1500
-              }));
+                    position: 'center',
+                    type: 'success',
+                    title: 'Excelente!',
+                    text: 'Laboratorio creado con exito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            });
         } catch (error) {
             console.log(error);
             Swal.fire({
@@ -85,13 +93,17 @@ function AgregarLaboratorio({history, guardarRecargarLaboratorios}){
                     </div>
                     <div className="form-group">
                         <label>Patt Laboratorio</label>
-                        <textarea
-                            type="text"
+                        <input
+                            type="file"
+                            accept=".patt"
                             className="form-control"
                             name="patt"
-                            placeholder="Patt Laboratorio"
-                            onChange={e => guardarPatt(e.target.value)}
-                        ></textarea>
+                            onChange={e => {
+                                if (e.target.files.length > 0){
+                                setArchivoPatt(e.target.files[0])
+                                }
+                            }}
+                        ></input>
                     </div>
 
                     <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Laboratorio" />

@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import 'firebase/firestore';
+import 'firebase/storage';
 import 'firebase/auth';
 
 var firebaseConfig = {
@@ -13,5 +13,5 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
+  firebase.storage()
   export default firebase;
